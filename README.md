@@ -49,7 +49,7 @@ ALTER TABLE `user_operations`
   ADD CONSTRAINT `user_operations_ibfk_1` FOREIGN KEY (`userid1`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `user_operations_ibfk_2` FOREIGN KEY (`userid2`) REFERENCES `users` (`id`);
 
-### List of REST Endpoints and Explanation
+### List of REST Endpoints and Screens
 1) ###### Create friend connection between 2 users
  ![createnew](https://user-images.githubusercontent.com/1614865/42512528-76c601ea-8472-11e8-9ca6-78a84126f31b.PNG)
    
@@ -65,6 +65,7 @@ ALTER TABLE `user_operations`
 5) ###### Block updates from a friend
 ![block](https://user-images.githubusercontent.com/1614865/42513392-70ce3300-8474-11e8-9df9-12c3d790e19d.PNG)
 
-
-
+### List of Excpetions and Screens
+1) ###### Friend Connection Already exists
+![falreadyexists](https://user-images.githubusercontent.com/1614865/42513659-1f12351a-8475-11e8-8d63-9ce2b8a71145.PNG)
 
