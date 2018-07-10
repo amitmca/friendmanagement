@@ -69,3 +69,16 @@ ALTER TABLE `user_operations`
 1) ###### Friend Connection Already exists
 ![falreadyexists](https://user-images.githubusercontent.com/1614865/42513659-1f12351a-8475-11e8-8d63-9ce2b8a71145.PNG)
 
+2) ###### User Email does not exists
+![image](https://user-images.githubusercontent.com/1614865/42513784-6ad1b8c2-8475-11e8-91ba-ab5db0557dbc.png)
+
+3) ###### No common friends between 2 users
+![image](https://user-images.githubusercontent.com/1614865/42513821-880c60e0-8475-11e8-8f33-4f25683c99a5.png)
+
+4) ###### Subscrition for updates already exists
+![image](https://user-images.githubusercontent.com/1614865/42514005-f9a1e2de-8475-11e8-9576-e7fde901a528.png)
+
+5) ###### Updates from this friend are already blocked
+![image](https://user-images.githubusercontent.com/1614865/42514091-2e638978-8476-11e8-99c1-be9841a95c7b.png)
+
+
