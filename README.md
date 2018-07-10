@@ -32,6 +32,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+![opeations](https://user-images.githubusercontent.com/1614865/42512167-88df6944-8471-11e8-945b-69b5bc86c9f4.PNG)
+
 3) ###### User_operations : Table to store the operations performed by a user
 CREATE TABLE IF NOT EXISTS `user_operations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
