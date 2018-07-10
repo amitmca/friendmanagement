@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `operations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-2)###### Users : Table which stores user details like  name,contactno,email
+2) ###### Users : Table which stores user details like  name,contactno,email
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-3)###### User_operations : Table to store the operations performed by a user
+3) ###### User_operations : Table to store the operations performed by a user
 CREATE TABLE IF NOT EXISTS `user_operations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid1` int(11) NOT NULL,
