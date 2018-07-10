@@ -12,7 +12,7 @@ This is an application with a need to build its own social network, "Friends Man
 5)	Postman
 
 ###### Database Structure 
-1)	Operations  :  Table which represents the operations that a user can perform
+1) ######	Operations  :  Table which represents the operations that a user can perform
 
 CREATE TABLE IF NOT EXISTS `operations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `operations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-2)	Users : Table which stores user details like  name,contactno,email
+2)######	Users : Table which stores user details like  name,contactno,email
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-3)	User_operations : Table to store the operations performed by a user
+3)######	User_operations : Table to store the operations performed by a user
 CREATE TABLE IF NOT EXISTS `user_operations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid1` int(11) NOT NULL,
@@ -46,7 +46,7 @@ ALTER TABLE `user_operations`
   ADD CONSTRAINT `user_operations_ibfk_2` FOREIGN KEY (`userid2`) REFERENCES `users` (`id`);
 
 ### List of REST Endpoints and Explanation
-1)	Return list of friends for a user
+1)	###### Return list of friends for a user
   
 
 
