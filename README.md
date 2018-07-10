@@ -5,9 +5,9 @@ This is an application with a need to build its own social network, "Friends Man
 1)	Java
 2)	J2EE
 3)	Spring 
-  a)	Spring REST
-  b)	Spring BOOT
-  c)	Spring DATA
+  1.	Spring REST
+  2.	Spring BOOT
+  3.	Spring DATA
 4)	MySQL
 5)	Postman
 
