@@ -15,7 +15,8 @@ This is an application with a need to build its own social network, "Friends Man
 1)	Operations  :  Table which represents the operations that a user can perform
 2)	Users : Table which stores user details like  name,contactno,email
 3)	User_operations : Table to store the operations performed by a user
-List of REST Endpoints and Explanation
+
+### List of REST Endpoints and Explanation
 1)	Return list of friends for a user
   
 
