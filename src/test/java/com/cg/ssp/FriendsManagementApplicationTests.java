@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
-import com.cg.ssp.model.FriendsMgmtRequestDO;
-import com.cg.ssp.model.FriendsMgmtResponseDO;
+import com.cg.ssp.dto.FriendsMgmtRequestDTO;
+import com.cg.ssp.dto.FriendsMgmtResponseDTO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,9 +23,9 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testFriendsList() {
 		RestTemplate restTemplate = new RestTemplate();
-		FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+		FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 		friendMgmtDO.setEmail("amit@gmail.com");
-		ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friendlist/", friendMgmtDO,FriendsMgmtResponseDO.class );
+		ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friendlist/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 		String friends[] = friendsMgmtResponseDO.getBody().getFriends();
 		Assert.assertEquals("kasturi@gmail.com", friends[0]);
 		Assert.assertEquals(1, friendsMgmtResponseDO.getBody().getCount());
@@ -36,9 +36,9 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testFriendsListFalse() {
 			RestTemplate restTemplate = new RestTemplate();
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			friendMgmtDO.setEmail("amit1@gmail.com");
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friendlist/", friendMgmtDO,FriendsMgmtResponseDO.class );
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friendlist/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
 			Assert.assertEquals(false,friendsMgmtResponseDO.getBody().isSuccess());
@@ -48,10 +48,10 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testCreateFriend() {
 			RestTemplate restTemplate = new RestTemplate();
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			String friends[] = {"amit@gmail.com","amey@gmail.com"};
 			friendMgmtDO.setFriends(friends);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friends/", friendMgmtDO,FriendsMgmtResponseDO.class );
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friends/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 			String resFriends[] = friendsMgmtResponseDO.getBody().getFriends();
 			Assert.assertEquals("amit@gmail.com", resFriends[0]);
 			Assert.assertEquals("amey@gmail.com", resFriends[1]);
@@ -63,10 +63,10 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testCreateDuplicateFriend() {
 			RestTemplate restTemplate = new RestTemplate();
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			String friends[] = {"amit@gmail.com","amey@gmail.com"};
 			friendMgmtDO.setFriends(friends);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friends/", friendMgmtDO,FriendsMgmtResponseDO.class );
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/friends/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 			String resFriends[] = friendsMgmtResponseDO.getBody().getFriends();
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
@@ -77,10 +77,10 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testCommonFriends() {
 			RestTemplate restTemplate = new RestTemplate();
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			String friends[] = {"amit@gmail.com","amod@gmail.com"};
 			friendMgmtDO.setFriends(friends);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/commonfriends/", friendMgmtDO,FriendsMgmtResponseDO.class );
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/commonfriends/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 			String resFriends[] = friendsMgmtResponseDO.getBody().getFriends();
 			Assert.assertEquals("amey@gmail.com", resFriends[0]);
 			Assert.assertEquals("kasturi@gmail.com", resFriends[1]);
@@ -92,10 +92,10 @@ public class FriendsManagementApplicationTests {
 	@Test
 	public void testCommonFriendsFalse() {
 			RestTemplate restTemplate = new RestTemplate();
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			String friends[] = {"amit@gmail.com","amey@gmail.com"};
 			friendMgmtDO.setFriends(friends);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/commonfriends/", friendMgmtDO,FriendsMgmtResponseDO.class );
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.postForEntity( REST_SERVICE_URI+"/commonfriends/", friendMgmtDO,FriendsMgmtResponseDTO.class );
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
 			Assert.assertEquals(false,friendsMgmtResponseDO.getBody().isSuccess());
@@ -106,12 +106,12 @@ public class FriendsManagementApplicationTests {
 	public void testSubscribeForUpdates() {
 			RestTemplate restTemplate = new RestTemplate();
 			
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			friendMgmtDO.setRequestor("amit@gmail.com");
 			friendMgmtDO.setTarget("amey@gmail.com");
 			
-			HttpEntity<FriendsMgmtRequestDO> entity = new HttpEntity<FriendsMgmtRequestDO>(friendMgmtDO);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/subscribe/", HttpMethod.PUT, entity, FriendsMgmtResponseDO.class);
+			HttpEntity<FriendsMgmtRequestDTO> entity = new HttpEntity<FriendsMgmtRequestDTO>(friendMgmtDO);
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/subscribe/", HttpMethod.PUT, entity, FriendsMgmtResponseDTO.class);
 		    
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
@@ -123,12 +123,12 @@ public class FriendsManagementApplicationTests {
 	public void testSubscribeForUpdatesFalse() {
 			RestTemplate restTemplate = new RestTemplate();
 			
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			friendMgmtDO.setRequestor("amit@gmail.com");
 			friendMgmtDO.setTarget("amey@gmail.com");
 			
-			HttpEntity<FriendsMgmtRequestDO> entity = new HttpEntity<FriendsMgmtRequestDO>(friendMgmtDO);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/subscribe/", HttpMethod.PUT, entity, FriendsMgmtResponseDO.class);
+			HttpEntity<FriendsMgmtRequestDTO> entity = new HttpEntity<FriendsMgmtRequestDTO>(friendMgmtDO);
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/subscribe/", HttpMethod.PUT, entity, FriendsMgmtResponseDTO.class);
 		    
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
@@ -140,12 +140,12 @@ public class FriendsManagementApplicationTests {
 	public void testBlockForUpdates() {
 			RestTemplate restTemplate = new RestTemplate();
 			
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			friendMgmtDO.setRequestor("amit@gmail.com");
 			friendMgmtDO.setTarget("amey@gmail.com");
 			
-			HttpEntity<FriendsMgmtRequestDO> entity = new HttpEntity<FriendsMgmtRequestDO>(friendMgmtDO);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/block/", HttpMethod.PUT, entity, FriendsMgmtResponseDO.class);
+			HttpEntity<FriendsMgmtRequestDTO> entity = new HttpEntity<FriendsMgmtRequestDTO>(friendMgmtDO);
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/block/", HttpMethod.PUT, entity, FriendsMgmtResponseDTO.class);
 		    
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());
@@ -157,12 +157,12 @@ public class FriendsManagementApplicationTests {
 	public void testBlockForUpdatesFalse() {
 			RestTemplate restTemplate = new RestTemplate();
 			
-			FriendsMgmtRequestDO friendMgmtDO = new FriendsMgmtRequestDO();
+			FriendsMgmtRequestDTO friendMgmtDO = new FriendsMgmtRequestDTO();
 			friendMgmtDO.setRequestor("amit@gmail.com");
 			friendMgmtDO.setTarget("amey@gmail.com");
 			
-			HttpEntity<FriendsMgmtRequestDO> entity = new HttpEntity<FriendsMgmtRequestDO>(friendMgmtDO);
-			ResponseEntity<FriendsMgmtResponseDO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/block/", HttpMethod.PUT, entity, FriendsMgmtResponseDO.class);
+			HttpEntity<FriendsMgmtRequestDTO> entity = new HttpEntity<FriendsMgmtRequestDTO>(friendMgmtDO);
+			ResponseEntity<FriendsMgmtResponseDTO> friendsMgmtResponseDO = restTemplate.exchange( REST_SERVICE_URI+"/block/", HttpMethod.PUT, entity, FriendsMgmtResponseDTO.class);
 		    
 			Assert.assertEquals(null, friendsMgmtResponseDO.getBody().getFriends());
 			Assert.assertEquals(0, friendsMgmtResponseDO.getBody().getCount());

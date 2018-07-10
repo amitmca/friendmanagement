@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @author Amit Bhalerao
+ * Domain object which holds the Users data in Application
+ */
+
 @Entity
 @Table(name = "Users")
 
