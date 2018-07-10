@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS `operations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+![usertableview](https://user-images.githubusercontent.com/1614865/42512104-580e6b3a-8471-11e8-80b3-cd19d09db553.PNG)
+
 2) ###### Users : Table which stores user details like  name,contactno,email
 
 CREATE TABLE IF NOT EXISTS `users` (
