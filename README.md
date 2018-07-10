@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `operations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-![usertableview](https://user-images.githubusercontent.com/1614865/42512104-580e6b3a-8471-11e8-80b3-cd19d09db553.PNG)
+![opeations](https://user-images.githubusercontent.com/1614865/42512167-88df6944-8471-11e8-945b-69b5bc86c9f4.PNG)
 
 2) ###### Users : Table which stores user details like  name,contactno,email
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-![opeations](https://user-images.githubusercontent.com/1614865/42512167-88df6944-8471-11e8-945b-69b5bc86c9f4.PNG)
+![usertableview](https://user-images.githubusercontent.com/1614865/42512104-580e6b3a-8471-11e8-80b3-cd19d09db553.PNG)
 
 3) ###### User_operations : Table to store the operations performed by a user
 CREATE TABLE IF NOT EXISTS `user_operations` (
